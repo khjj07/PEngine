@@ -137,15 +137,16 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Meterial.h" />
     <ClInclude Include="Protocols.h" />
-    <ClInclude Include="RectangleRenderer.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Scene1.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="TimerHandler.h" />
     <ClInclude Include="Transform.h" />
-    <ClInclude Include="WinMain.h" />
+    <ClInclude Include="Win32api.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
@@ -158,19 +159,22 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Meterial.cpp" />
-    <ClCompile Include="RectangleRenderer.cpp" />
     <ClCompile Include="Render.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Scene1.cpp" />
     <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="TimerHandler.cpp" />
     <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="Win32api.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Engine.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="dots.bmp" />
     <Image Include="Engine.ico" />
     <Image Include="small.ico" />
   </ItemGroup>

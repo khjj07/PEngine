@@ -3,19 +3,9 @@
 
 Engine::Engine()
 {
-	render = nullptr;
-	screen = nullptr;
+	render = Render::Instance();
+	timer = new Timer();
 }
-
-Engine::Engine(HWND h,MSG message, HACCEL hAccel)
-{
-	render = nullptr;
-	screen = nullptr;
-	msg = message;
-	hAccelTable = hAccel;
-	hWnd = h;
-}
-
 
 void Engine::Run(Scene *scene)
 {
@@ -26,27 +16,26 @@ void Engine::Run(Scene *scene)
 	QueryPerformanceFrequency((LARGE_INTEGER*)&periodFrequency);
 	double timeScale = 1.0 / (double)periodFrequency;
 	state = EngineState::Run;
+	MSG msg = {};
 	while (state == EngineState::Run)
 	{
 		Start();
-		QueryPerformanceCounter((LARGE_INTEGER*)&e);
-		InvalidateRect(hWnd, NULL, TRUE);
-		MessageHandling();
+		QueryPerformanceCounter((LARGE_INTEGER*)&s);
 		Collide();
 		Update(dt);
-		QueryPerformanceCounter((LARGE_INTEGER*)&s);
+		render->Update();
+		timer->Update(dt);
+		state = Win32api::getWin()->updateMsg(&msg);
+		QueryPerformanceCounter((LARGE_INTEGER*)&e);
 		dt = (double)(e - s) * timeScale;
 	}
-	
+	Win32api::getWin()->release();
+	Win32api::releaseWin();
 }
+
 EngineState Engine::MessageHandling()
 {
-	GetMessage(&msg, nullptr, 0, 0);
-	if (!TranslateAccelerator(hWnd, hAccelTable, &msg))
-	{
-		TranslateMessage(&msg);
-		DispatchMessage(&msg);
-	}
+
 	return EngineState::Run;
 }
 
@@ -68,9 +57,7 @@ EngineState Engine::Update(double dt)
 	return EngineState::Run;
 }
 
-EngineState Engine::OnInput(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+EngineState Engine::OnInput()
 {
 	return EngineState::Run;
 }
-
-

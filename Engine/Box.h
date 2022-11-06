@@ -1,7 +1,8 @@
 #pragma once
 #include "Common.h"
 #include "GameObject.h"
-#include "RectangleRenderer.h"
+#include "Renderer.h"
+#include "BoxScript.h"
 class Box : public GameObject
 {
 public:

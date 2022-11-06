@@ -9,11 +9,10 @@
 #include "Singleton.h"
 #include "Color.h"
 #include "framework.h"
-#include "WinMain.h"
 #include "Input.h"
 using namespace std;
 
-static enum CollisionState
+enum CollisionState
 {
 	Enter,
 	Exit,
@@ -88,12 +87,18 @@ struct Vector2
 		return result;
 	}
 
-	Vector2 operator -=(Vector2 k)
+	Vector2& operator +=(Vector2& k)
 	{
-		Vector2 result;
-		result.x = x - k.x;
-		result.y = y - k.y;
-		return result;
+		(*this).x = (*this).x + k.x;
+		(*this).y = (*this).y + k.y;
+		return (*this);
+	}
+
+	Vector2& operator -=(Vector2& k)
+	{
+		(*this).x = (*this).x - k.x;
+		(*this).y = (*this).y - k.y;
+		return (*this);
 	}
 
 	Vector2 operator *(float k)

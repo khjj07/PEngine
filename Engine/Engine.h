@@ -4,15 +4,16 @@
 #include "Screen.h"
 #include "Render.h"
 #include "Protocols.h"
+#include "Win32api.h"
+#include "Timer.h"
 
 class Engine : public Singleton<Engine>
 {
 public:
 	Engine();
-	Engine(HWND, MSG, HACCEL);
 	void Run(Scene* scene);
 	EngineState Start();
-	EngineState OnInput(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+	EngineState OnInput();
 	EngineState Update(double dt);
 	EngineState LoadScene();
 	EngineState UnloadScene();
@@ -24,10 +25,7 @@ public :
 	EngineState state;
 	Scene* currentScene;
 	Render* render;
-	Screen* screen;
-	MSG msg;
-	HACCEL hAccelTable;
-	HWND hWnd;
+	Timer* timer;
 private:
 	
 

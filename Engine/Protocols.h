@@ -1,7 +1,7 @@
 #pragma once
-static enum EngineState
+enum class EngineState
 {
-	Run,
-	Stop,
-	Error
+	Stop=0,
+	Run=1,
+	Error=2
 };

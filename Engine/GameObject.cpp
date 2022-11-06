@@ -81,11 +81,6 @@ void GameObject::OnCollisionStay(CollisionResponse response)
 	}
 }
 
-void GameObject::render(HDC * hdc)
-{
-	GetComponent<Renderer>()->Draw(hdc);
-}
-
 void GameObject::OnDestroy()
 {
 	componentIter = componentList.begin();

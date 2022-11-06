@@ -1,14 +1,18 @@
 #pragma once
 #include "Common.h"
-#include "Scene.h"
-
-class Render {
+#include "Win32api.h"
+class Render : public Singleton<Render>
+{
 public:
 	Render();
 	void Init();
-	void Update(HDC* hdc, Scene* currentScene);
+	void Update();
 	void Clear();
 	void Flip();
+	HDC hdc;
+	HDC m_hdcBuffer;
+	HDC hdcBuffer;
+	BITMAP m_btSize;
 private:
 	
 };

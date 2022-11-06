@@ -3,7 +3,6 @@
 #include "Collider.h"
 #include "Component.h"
 #include "Transform.h"
-#include "Renderer.h"
 
 class Transform;
 class GameObject abstract{
@@ -16,7 +15,6 @@ public:
 	CollisionResponse Collide(Collider *other);
 	void Update(double dt);
 	void OnDestroy();
-	void render(HDC *hdc);
 	void Destory();
 	void Enable();
 	void Disable();
