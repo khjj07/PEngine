@@ -21,7 +21,7 @@ void GameObject::Start()
 	{
 		componentIter = componentList.begin();
 		for (; componentIter < componentList.end(); componentIter++)
-			(*componentIter)->Init();
+			(*componentIter)->Start();
 	}
 }
 CollisionResponse GameObject::Collide(Collider* other)

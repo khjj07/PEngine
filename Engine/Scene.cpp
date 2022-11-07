@@ -13,8 +13,12 @@ void Scene::Start()
 	objectIter = gameObjectList.begin();
 	for (; objectIter < gameObjectList.end(); objectIter++)
 	{
-		if((*objectIter)->started)
+		if (!(*objectIter)->started)
+		{
 			(*objectIter)->Start();
+			(*objectIter)->started = true;
+		}
+			
 	}
 }
 

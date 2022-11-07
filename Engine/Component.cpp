@@ -4,7 +4,7 @@ Component::Component()
 
 }
 
-void Component::Init()
+void Component::Start()
 {
 
 }

@@ -10,6 +10,8 @@
 #include "Color.h"
 #include "framework.h"
 #include "Input.h"
+#define PI	3.141592654
+
 using namespace std;
 
 enum CollisionState
@@ -115,6 +117,10 @@ struct Vector2
 		result.x = x / k;
 		result.y = y / k;
 		return result;
+	}
+	float Length()
+	{
+		return pow(pow(x, 2) + pow(y, 2), 0.5);
 	}
 };
 

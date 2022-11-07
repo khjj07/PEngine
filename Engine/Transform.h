@@ -8,8 +8,10 @@ class Transform : public Component
 public:
 	Transform();
 	Transform(Vector2 pos);
+	Transform(Vector2 pos, float rot);
+	Transform(Vector2 pos, float rot, Vector2 Scale);
 	Vector2 position;
-	Vector2 rotation;
+	float rotation;
 	Vector2 scale;
 	GameObject* gameObject;
 private:

@@ -14,6 +14,7 @@ public:
 	virtual void Draw();
 	virtual void Update(double dt);
 	HBITMAP bmp;
+	BITMAP btSize;
 private:
 
 };

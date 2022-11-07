@@ -3,7 +3,7 @@
 class Component abstract{
 public:
 	Component();
-	virtual void Init();
+	virtual void Start();
 	virtual void Update(double dt);
 	virtual void OnDestroy();
 	virtual void OnEnable();
