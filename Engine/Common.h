@@ -10,6 +10,7 @@
 #include "Color.h"
 #include "framework.h"
 #include "Input.h"
+#include "math.h"
 #define PI	3.141592654
 
 using namespace std;
@@ -101,6 +102,11 @@ struct Vector2
 		(*this).x = (*this).x - k.x;
 		(*this).y = (*this).y - k.y;
 		return (*this);
+	}
+
+	float operator *(Vector2 k)
+	{
+		return x * k.x + y * k.y;
 	}
 
 	Vector2 operator *(float k)
