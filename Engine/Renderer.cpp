@@ -64,5 +64,8 @@ void Renderer::Draw()
 
 	StretchBlt(render->MemDC, transform->position.x- btSize.bmWidth/2 * transform->scale.x, transform->position.y- btSize.bmHeight/2 * transform->scale.y, btSize.bmWidth*transform->scale.x, btSize.bmHeight * transform->scale.y, tmp, 0,0, btSize.bmWidth , btSize.bmHeight, SRCCOPY);
 	SelectObject(tmp, hOldBitmap);
+	DeleteObject(hTempBitmap);
+	DeleteObject(hTempBitmap);
+
     DeleteDC(tmp);
 }

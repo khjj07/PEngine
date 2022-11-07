@@ -13,7 +13,7 @@ public:
 	Vector2 direction;
 	Vector2 velocity;
 	Transform* transform;
-	float speed=100;
+	float speed=200;
 	float fraction=0.1;
 
 private:
