@@ -27,20 +27,10 @@ void BoxScript::Start()
 			transform->scale.y -= 0.1;
 		}
 	});
-	Timer::Delay(2, true, [this]() {
-	
-
-		if (check)
-		{
-			direction = Vector2(1, 0);
-			check = false;
-		}
-		else
-		{
-			direction = Vector2(-1, 0);
-			check = true;
-		}
-	});
+	Animation* anim1 = new Animation(transform->GetComponent<Renderer>());
+	anim1->PushImage(IDB_BITMAP1);
+	anim1->PushImage(IDB_BITMAP2);
+	anim1->Play(1, true);
 }
 
 void BoxScript::Update(double dt)

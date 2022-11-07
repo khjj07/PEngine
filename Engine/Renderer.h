@@ -9,12 +9,13 @@
 class Renderer :public Component
 {
 public:
-	Renderer(Transform* transform);
+	Renderer(Transform* t, int img);
 	Transform* transform;
 	virtual void Draw();
 	virtual void Update(double dt);
 	HBITMAP bmp;
 	BITMAP btSize;
+	int image;
 private:
 
 };

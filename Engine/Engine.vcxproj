@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="BoxScript.h" />
     <ClInclude Include="Collider.h" />
@@ -152,6 +153,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="BoxScript.cpp" />
     <ClCompile Include="Collider.cpp" />
@@ -174,9 +176,11 @@
     <ResourceCompile Include="Engine.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="bitmap2.bmp" />
     <Image Include="dots.bmp" />
     <Image Include="Engine.ico" />
     <Image Include="small.ico" />
+    <Image Include="snail.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

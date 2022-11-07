@@ -36,6 +36,9 @@
     <Filter Include="Engine\Timer">
       <UniqueIdentifier>{32f3783a-367c-4764-b031-f195ba62e383}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Animation">
+      <UniqueIdentifier>{4fd1ce55-613c-4f6c-8515-edfb856fc3da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -107,6 +110,9 @@
     <ClInclude Include="TimerHandler.h">
       <Filter>Engine\Timer</Filter>
     </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Engine\Animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -160,6 +166,9 @@
     <ClCompile Include="TimerHandler.cpp">
       <Filter>Engine\Timer</Filter>
     </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Engine\Animation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Engine.rc">
@@ -174,6 +183,12 @@
       <Filter>Resources</Filter>
     </Image>
     <Image Include="dots.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="bitmap2.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="snail.bmp">
       <Filter>Resources</Filter>
     </Image>
   </ItemGroup>

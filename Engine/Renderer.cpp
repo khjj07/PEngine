@@ -41,10 +41,11 @@ HBITMAP GetRotatedBitmap(HDC hdc, HBITMAP hBitmap, int source_x, int source_y,
 }
 
 
-Renderer::Renderer(Transform* t)
+Renderer::Renderer(Transform* t,int img)
 {
 	transform = t;
-    bmp = (HBITMAP)LoadBitmap(Win32api::getWin()->m_hInstance, MAKEINTRESOURCE(IDB_BITMAP1));
+	image = img;
+	bmp = (HBITMAP)LoadBitmap(Win32api::getWin()->m_hInstance, MAKEINTRESOURCE(image));
 }
 void Renderer::Update(double dt)
 {
@@ -53,6 +54,7 @@ void Renderer::Update(double dt)
 void Renderer::Draw()
 {
 	static HDC tmp;
+
 	HBITMAP hTempBitmap, hOldBitmap;
     Render* render = Render::Instance();
 	tmp = CreateCompatibleDC(render->hdc);

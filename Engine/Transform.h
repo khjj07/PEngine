@@ -18,7 +18,22 @@ public:
 	Vector2 down = Vector2(0, -1);
 	Vector2 right = Vector2(1, 0);
 	Vector2 left = Vector2(-1, 0);
-	GameObject* gameObject;
+	vector<Component*>* componentList;
+public:
+	template<typename T>
+	T* GetComponent();
+	void AddComponent(Component* newComponent);
 private:
 
 };
+
+template<typename T>
+T* Transform::GetComponent()
+{
+	vector<Component*>::iterator component = componentList->begin();
+	for (; component < componentList->end(); component++)
+	{
+		if (typeid(T).name() == typeid(**component).name())
+			return (T*)*component;
+	}
+}

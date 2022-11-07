@@ -16,7 +16,7 @@ TimerHandler* Timer::Delay(double delay, bool loop, function<void()> callback)
 
 void Timer::Cancel(TimerHandler* handle)
 {
-	timerList.erase(std::remove_if(timerList.begin(), timerList.end(), [handle](TimerHandler* x) { return x == handle; }), timerList.end());
+	handle->exit = true;
 }
 
 void Timer::Update(double dt)

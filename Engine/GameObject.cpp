@@ -3,11 +3,13 @@
 GameObject::GameObject()
 {
 	transform = new Transform();
+	transform->componentList = &componentList;
 }
 
 GameObject::GameObject(Vector2 pos)
 {
 	transform = new Transform(pos);
+	transform->componentList = &componentList;
 }
 
 GameObject::~GameObject()

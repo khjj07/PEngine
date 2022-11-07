@@ -3,6 +3,7 @@
 #include "Component.h"
 #include "Transform.h"
 #include "Timer.h"
+#include "Animation.h"
 
 class BoxScript : public Component
 {

@@ -31,3 +31,8 @@ void Transform::Update(double dt)
 	Vector2 left = Vector2(cosf(rotation + 180), sinf(rotation + 180));
 	rotation = rotation>=360 ? rotation - 360 : rotation;
 }
+
+void Transform::AddComponent(Component* newComponent)
+{
+	componentList->push_back(newComponent);
+}
