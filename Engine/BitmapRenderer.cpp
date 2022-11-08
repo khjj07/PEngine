@@ -1,4 +1,4 @@
-#include "Renderer.h"
+#include "BitmapRenderer.h"
 
 HBITMAP GetRotatedBitmap(HDC hdc, HBITMAP hBitmap, int source_x, int source_y,
 	int dest_width, int dest_height, float angle, COLORREF bkColor)
@@ -41,17 +41,17 @@ HBITMAP GetRotatedBitmap(HDC hdc, HBITMAP hBitmap, int source_x, int source_y,
 }
 
 
-Renderer::Renderer(Transform* t,int img)
+BitmapRenderer::BitmapRenderer(Transform* t,int img)
 {
 	transform = t;
 	image = img;
 	bmp = (HBITMAP)LoadBitmap(Win32api::getWin()->m_hInstance, MAKEINTRESOURCE(image));
 }
-void Renderer::Update(double dt)
+void BitmapRenderer::Update(double dt)
 {
     Draw();
 }
-void Renderer::Draw()
+void BitmapRenderer::Draw()
 {
 	static HDC tmp;
 
@@ -64,10 +64,8 @@ void Renderer::Draw()
 
 	hOldBitmap = (HBITMAP)SelectObject(tmp, hTempBitmap);
 
-	StretchBlt(render->MemDC, transform->position.x- btSize.bmWidth/2 * transform->scale.x, transform->position.y- btSize.bmHeight/2 * transform->scale.y, btSize.bmWidth*transform->scale.x, btSize.bmHeight * transform->scale.y, tmp, 0,0, btSize.bmWidth , btSize.bmHeight, SRCCOPY);
+	StretchBlt(render->MemDC, transform->position.x - btSize.bmWidth/2 * transform->scale.x, transform->position.y- btSize.bmHeight/2 * transform->scale.y, btSize.bmWidth*transform->scale.x, btSize.bmHeight * transform->scale.y, tmp, 0,0, btSize.bmWidth , btSize.bmHeight, SRCCOPY);
 	SelectObject(tmp, hOldBitmap);
 	DeleteObject(hTempBitmap);
-	DeleteObject(hTempBitmap);
-
     DeleteDC(tmp);
 }

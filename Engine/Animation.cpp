@@ -1,7 +1,7 @@
 #include "Animation.h"
 
 
-Animation::Animation(Renderer* r)
+Animation::Animation(BitmapRenderer* r)
 {
 	renderer = r;
 }

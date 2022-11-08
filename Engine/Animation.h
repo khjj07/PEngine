@@ -1,15 +1,15 @@
 #pragma once
 #include "Common.h"
-#include "Renderer.h"
+#include "BitmapRenderer.h"
 #include "Timer.h"
 class Animation
 {
 public:
-	Animation(Renderer* renderer);
+	Animation(BitmapRenderer* renderer);
 	void Play(float duration,bool loop);
 	void Cancel();
 	void PushImage(int bmp);
-	Renderer* renderer;
+	BitmapRenderer* renderer;
 	vector<HBITMAP> imageList;
 	TimerHandler *animationHandler;
 };

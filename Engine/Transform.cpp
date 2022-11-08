@@ -2,6 +2,7 @@
 Transform::Transform()
 {
 	position = Vector2();
+	awaked = true;
 }
 Transform::Transform(Vector2 pos)
 {
@@ -34,5 +35,9 @@ void Transform::Update(double dt)
 
 void Transform::AddComponent(Component* newComponent)
 {
-	componentList->push_back(newComponent);
+	if (awaked)
+		addComponentQueue->push_back(newComponent);
+	else
+		componentList->push_back(newComponent);
+	
 }

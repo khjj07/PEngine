@@ -5,6 +5,7 @@
 #include "Engine.h"
 #include "Scene1.h"
 #include "Win32api.h"
+#include "Input.h"
 
 Win32api* Win32api::m_pMyWin = nullptr;
 
@@ -97,6 +98,48 @@ LRESULT Win32api::myProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+	case WM_KEYDOWN:
+        Input::KeyPressed(wParam);
+        break;
+	case WM_KEYUP:
+        Input::KeyReleased(wParam);
+        break;
+    case WM_LBUTTONDOWN:
+        Input::Mouse[0].pressed = true;
+        Input::Mouse[0].released = false;
+        break;
+	case WM_MBUTTONDOWN:
+        Input::Mouse[2].pressed = true;
+        Input::Mouse[2].released = false;
+        break;
+	case WM_RBUTTONDOWN:
+        Input::Mouse[1].pressed = true;
+        Input::Mouse[1].released = false;
+        break;
+    case WM_LBUTTONUP:
+        Input::Mouse[0].released = true;
+        Input::Mouse[0].pressed = false;
+        break;
+    case WM_MBUTTONUP:
+        Input::Mouse[2].released = true;
+        Input::Mouse[2].pressed = false;
+        break;
+    case WM_RBUTTONUP:
+        Input::Mouse[1].released = true;
+        Input::Mouse[1].pressed = false;
+        break;
+	case WM_MOUSEWHEEL:
+
+		if ((SHORT)HIWORD(wParam) > 0) //마우스휠을 올릴 경우
+		{
+            Input::MouseWheel = 1;
+		}
+		else  
+		{
+            Input::MouseWheel = -1;
+		}
+
+		break;
     case WM_PAINT:
     {
         PAINTSTRUCT ps;

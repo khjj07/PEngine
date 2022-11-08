@@ -15,11 +15,20 @@
     <Filter Include="Engine\Component">
       <UniqueIdentifier>{8c249d02-3092-44a3-bde1-dce3424e351a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game">
-      <UniqueIdentifier>{a76a8808-55c5-4a81-839a-7c02b95d6b3e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Util">
       <UniqueIdentifier>{d07f3f19-bb36-4b1f-8a1d-b0d69c2a2495}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api">
+      <UniqueIdentifier>{1e12401b-64ea-40c1-b4c7-4727f5f83017}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Timer">
+      <UniqueIdentifier>{32f3783a-367c-4764-b031-f195ba62e383}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Animation">
+      <UniqueIdentifier>{4fd1ce55-613c-4f6c-8515-edfb856fc3da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{a76a8808-55c5-4a81-839a-7c02b95d6b3e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\Prefab">
       <UniqueIdentifier>{ab80b8cf-496c-4d31-8ef3-c0b8867d03a2}</UniqueIdentifier>
@@ -30,14 +39,14 @@
     <Filter Include="Game\Scene">
       <UniqueIdentifier>{159a794e-7c1c-46c8-81bd-9f7b35499de9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Api">
-      <UniqueIdentifier>{1e12401b-64ea-40c1-b4c7-4727f5f83017}</UniqueIdentifier>
+    <Filter Include="Game\Prefab\Manager">
+      <UniqueIdentifier>{7107189d-80d7-4522-9ce4-54fb4460da82}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Timer">
-      <UniqueIdentifier>{32f3783a-367c-4764-b031-f195ba62e383}</UniqueIdentifier>
+    <Filter Include="Engine\Component\Renderer">
+      <UniqueIdentifier>{236a658f-4127-431e-8883-7689e1db959f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Animation">
-      <UniqueIdentifier>{4fd1ce55-613c-4f6c-8515-edfb856fc3da}</UniqueIdentifier>
+    <Filter Include="Engine\Event">
+      <UniqueIdentifier>{58ae3e1d-bc91-4460-9601-ecd8765da7e0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -86,17 +95,14 @@
     <ClInclude Include="targetver.h">
       <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="Box.h">
+    <ClInclude Include="Stone.h">
       <Filter>Game\Prefab</Filter>
     </ClInclude>
-    <ClInclude Include="BoxScript.h">
+    <ClInclude Include="PointStoneScript.h">
       <Filter>Game\Script</Filter>
     </ClInclude>
     <ClInclude Include="Scene1.h">
       <Filter>Game\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>Engine\Component</Filter>
     </ClInclude>
     <ClInclude Include="Render.h">
       <Filter>Engine</Filter>
@@ -112,6 +118,42 @@
     </ClInclude>
     <ClInclude Include="Animation.h">
       <Filter>Engine\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="BitmapRenderer.h">
+      <Filter>Engine\Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleRenderer.h">
+      <Filter>Engine\Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleRenderer.h">
+      <Filter>Engine\Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="LineRenderer.h">
+      <Filter>Engine\Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Board.h">
+      <Filter>Game\Prefab</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardScript.h">
+      <Filter>Game\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="PointStone.h">
+      <Filter>Game\Prefab</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHandler.h">
+      <Filter>Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Engine\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCamera.h">
+      <Filter>Game\Prefab</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -142,17 +184,14 @@
     <ClCompile Include="Transform.cpp">
       <Filter>Engine\Component</Filter>
     </ClCompile>
-    <ClCompile Include="Box.cpp">
+    <ClCompile Include="Stone.cpp">
       <Filter>Game\Prefab</Filter>
     </ClCompile>
-    <ClCompile Include="BoxScript.cpp">
+    <ClCompile Include="PointStoneScript.cpp">
       <Filter>Game\Script</Filter>
     </ClCompile>
     <ClCompile Include="Scene1.cpp">
       <Filter>Game\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>Engine\Component</Filter>
     </ClCompile>
     <ClCompile Include="Render.cpp">
       <Filter>Engine</Filter>
@@ -168,6 +207,42 @@
     </ClCompile>
     <ClCompile Include="Animation.cpp">
       <Filter>Engine\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="BitmapRenderer.cpp">
+      <Filter>Engine\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleRenderer.cpp">
+      <Filter>Engine\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleRenderer.cpp">
+      <Filter>Engine\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="LineRenderer.cpp">
+      <Filter>Engine\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>Game\Prefab</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardScript.cpp">
+      <Filter>Game\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="PointStone.cpp">
+      <Filter>Game\Prefab</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Engine\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="EventHandler.cpp">
+      <Filter>Engine\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Engine\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCamera.cpp">
+      <Filter>Game\Prefab</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

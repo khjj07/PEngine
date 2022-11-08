@@ -13,12 +13,14 @@ public:
 	virtual void Update(double dt);
 	Vector2 position;
 	float rotation;
+	bool awaked = false;
 	Vector2 scale;
 	Vector2 up = Vector2(0,1);
 	Vector2 down = Vector2(0, -1);
 	Vector2 right = Vector2(1, 0);
 	Vector2 left = Vector2(-1, 0);
 	vector<Component*>* componentList;
+	vector<Component*>* addComponentQueue;
 public:
 	template<typename T>
 	T* GetComponent();

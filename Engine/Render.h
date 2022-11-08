@@ -2,6 +2,7 @@
 #include "Common.h"
 #include "Screen.h"
 #include "Win32api.h"
+#include "Camera.h"
 class Render : public Singleton<Render>
 {
 public:

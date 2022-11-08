@@ -6,10 +6,10 @@
 #include "Render.h"
 #include "resource.h"
 
-class Renderer :public Component
+class BitmapRenderer :public Component
 {
 public:
-	Renderer(Transform* t, int img);
+	BitmapRenderer(Transform* t, int img);
 	Transform* transform;
 	virtual void Draw();
 	virtual void Update(double dt);

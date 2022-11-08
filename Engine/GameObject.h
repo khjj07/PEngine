@@ -28,11 +28,13 @@ public:
 	T* GetComponent();
 	Transform *transform;
 	vector<Component*> componentList;
+	vector<Component*> addComponentQueue;
 	bool started = false;
 	bool destroy = false;
 private:
 	vector<Component*>::iterator componentIter;
 	bool isEnabled = true;
+	bool awaked = false;
 };
 
 template<typename T>
@@ -44,4 +46,6 @@ T* GameObject::GetComponent()
 		if (typeid(T).name() == typeid(**component).name())
 			return (T*)*component;
 	}
+	return nullptr;
 }
+

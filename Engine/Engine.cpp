@@ -19,8 +19,36 @@ void Engine::Run(Scene *scene)
 	MSG msg = {};
 	while (state == EngineState::Run)
 	{
-		Start();
+
+
+	
 		QueryPerformanceCounter((LARGE_INTEGER*)&s);
+		if (!objectBuffer.empty())
+		{
+			vector<GameObject*>::iterator iter=objectBuffer.begin();
+			for (; iter < objectBuffer.end(); iter++)
+			{
+				currentScene->Push(*iter);
+			}
+			objectBuffer.clear();
+		}
+		if (!removeObjectBuffer.empty())
+		{
+			vector<GameObject*>::iterator iter = removeObjectBuffer.begin();
+			for (; iter < removeObjectBuffer.end(); iter++)
+			{
+				currentScene->Pop(*iter);
+				(*iter)->OnDestroy();
+				delete (*iter);
+			}
+			removeObjectBuffer.clear();
+		}
+		if (nextScene)
+		{
+			currentScene = nextScene;
+			currentScene->OnEnable();
+		}
+		Start();
 		Collide();
 		Update(dt);
 		render->Update();
@@ -57,7 +85,14 @@ EngineState Engine::Update(double dt)
 	return EngineState::Run;
 }
 
-EngineState Engine::OnInput()
+GameObject* Engine::Push(GameObject* newObject)
 {
-	return EngineState::Run;
+	objectBuffer.push_back(newObject);
+	return newObject;
+}
+
+
+void Engine::Pop(GameObject* obj)
+{
+	removeObjectBuffer.push_back(obj);
 }

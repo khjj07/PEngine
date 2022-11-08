@@ -4,13 +4,16 @@ GameObject::GameObject()
 {
 	transform = new Transform();
 	transform->componentList = &componentList;
+	transform->addComponentQueue = &addComponentQueue;
 }
 
 GameObject::GameObject(Vector2 pos)
 {
 	transform = new Transform(pos);
 	transform->componentList = &componentList;
+	transform->addComponentQueue = &addComponentQueue;
 }
+
 
 GameObject::~GameObject()
 {
@@ -19,6 +22,8 @@ GameObject::~GameObject()
 
 void GameObject::Start()
 {
+	awaked = true;
+	transform->awaked = true;
 	if (isEnabled)
 	{
 		componentIter = componentList.begin();
@@ -44,6 +49,11 @@ CollisionResponse GameObject::Collide(Collider* other)
 
 void  GameObject::Update(double dt)
 {
+	componentIter = addComponentQueue.begin();
+	for (; componentIter < addComponentQueue.end(); componentIter++)
+		componentList.push_back(*componentIter);
+	addComponentQueue.clear();
+
 	if (isEnabled)
 	{
 		componentIter = componentList.begin();
@@ -87,7 +97,11 @@ void GameObject::OnDestroy()
 {
 	componentIter = componentList.begin();
 	for (; componentIter < componentList.end(); componentIter++)
+	{
 		(*componentIter)->OnDestroy();
+		delete (*componentIter);
+	}
+	componentList.clear();
 }
 
 void GameObject::Destory()
@@ -129,5 +143,8 @@ void GameObject::OnDisable()
 
 void GameObject::AddComponent(Component* newComponent)
 {
-	componentList.push_back(newComponent);
+	if (awaked)
+		addComponentQueue.push_back(newComponent);
+	else
+		componentList.push_back(newComponent);
 }

@@ -9,7 +9,6 @@
 #include "Singleton.h"
 #include "Color.h"
 #include "framework.h"
-#include "Input.h"
 #include "math.h"
 #define PI	3.141592654
 
@@ -123,6 +122,10 @@ struct Vector2
 		result.x = x / k;
 		result.y = y / k;
 		return result;
+	}
+	static float Distance(Vector2 a,Vector2 b)
+	{
+		return pow(pow(a.x-b.x, 2) + pow(a.y - b.y, 2), 0.5);
 	}
 	float Length()
 	{
