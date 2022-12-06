@@ -25,8 +25,8 @@ void Render::Init()
 void Render::Update()
 {
 
-	StretchBlt(hdc, 0, 0, screen->resolution.x/Camera::Main->orthoScale, screen->resolution.y/Camera::Main->orthoScale, MemDC, 0, 0, screen->resolution.x, screen->resolution.y, SRCCOPY);
-   // BitBlt(hdc, 0, 0, screen->resolution.x, screen->resolution.y, MemDC, 0, 0, SRCCOPY);
+	//StretchBlt(hdc, 0, 0, screen->resolution.x, screen->resolution.y, MemDC, 0, 0, screen->resolution.x, screen->resolution.y, SRCCOPY);
+    BitBlt(hdc, 0, 0, screen->resolution.x, screen->resolution.y, MemDC, 0, 0, SRCCOPY);
     ReleaseDC(Win32api::getWin()->m_hWnd, hdc);
     InvalidateRect(Win32api::getWin()->m_hWnd, NULL, false);
     hdc = GetDC(Win32api::getWin()->m_hWnd);

@@ -38,8 +38,12 @@ void LineRenderer::Draw()
 	HBRUSH hNewBrush = CreateSolidBrush(brushColor);
 	HBRUSH hOldBrush = (HBRUSH)SelectObject(render->MemDC, hNewBrush);
 
-	MoveToEx(render->MemDC, start.x, start.y,NULL);
-	LineTo(render->MemDC, end.x, end.y);
+
+	MoveToEx(render->MemDC, start.x/ Camera::Main->orthoScale - Camera::Main->GetPosition().x, start.y / Camera::Main->orthoScale - Camera::Main->GetPosition().y, NULL);
+	LineTo(render->MemDC, end.x / Camera::Main->orthoScale - Camera::Main->GetPosition().x, end.y / Camera::Main->orthoScale - Camera::Main->GetPosition().y);
+	
+	//MoveToEx(render->MemDC, Camera::Main->WorldToScreenPoint(start).x, Camera::Main->WorldToScreenPoint(start).y, NULL);
+	//LineTo(render->MemDC, Camera::Main->WorldToScreenPoint(end).x, Camera::Main->WorldToScreenPoint(end).y);
 
 	SelectObject(render->MemDC, hOldPen);
 	DeleteObject(hNewPen);

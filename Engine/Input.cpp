@@ -14,7 +14,7 @@ Vector2 Input::GetMousePosition()
 	POINT p;
 	GetCursorPos(&p);
 	ScreenToClient(Win32api::getWin()->m_hWnd, &p);
-	return Vector2(p.x, p.y);
+	return Camera::Main->GetPosition() + Vector2(p.x, p.y);
 }
 
 bool Input::GetMouseButton(int btn)

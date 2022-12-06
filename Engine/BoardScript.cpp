@@ -106,10 +106,10 @@ void BoardScript::Start()
 	};
 	stoneFactory->stoneCreateEvent.addHandler(board);
 	float offset = 50;
-	Vector2 size = Vector2(offset * 18, offset * 18);
-	LineRenderer* row[19];
-	LineRenderer* column[19];
-	for (int i = 0; i < 19; i++)
+	Vector2 size = Vector2(offset * 19, offset * 19);
+	LineRenderer* row[20];
+	LineRenderer* column[20];
+	for (int i = 0; i < 20; i++)
 	{
 		row[i] = new LineRenderer(Vector2(transform->position.x, transform->position.y + i * offset), Vector2(transform->position.x + size.x, transform->position.y + i * offset));
 		column[i] = new LineRenderer(Vector2(transform->position.x + i * offset, transform->position.y), Vector2(transform->position.x + i * offset, transform->position.y + size.y));
@@ -144,7 +144,7 @@ void BoardScript::Update(double dt)
 		for (int j = 0; j < 20; j++)
 		{
 			Vector2 mousePos = Input::GetMousePosition();
-			if (!cell[i][j]->stone &&Vector2::Distance(cell[i][j]->position, mousePos)<20)
+			if (!cell[i][j]->stone &&Vector2::Distance(Camera::Main->WorldToScreenPoint(cell[i][j]->position), mousePos)<20)
 			{
 				stoneFactory->target = cell[i][j];
 				break;

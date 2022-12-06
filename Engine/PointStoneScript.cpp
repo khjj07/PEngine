@@ -20,10 +20,10 @@ void PointStoneScript::Update(double dt)
 	}
 	else
 	{
-		transform->position = target->position;
+		transform->position = Camera::Main->WorldToScreenPoint(target->position);
 		if (Input::GetMouseButtonDown(0))
 		{
-			target->stone=(Stone*)Instantiate(new Stone(target->position, currentColor));
+			target->stone=(Stone*)Instantiate(new Stone(Camera::Main->WorldToScreenPoint(target->position), currentColor));
 			target->color = currentColor;
 
 			if (currentColor == RGB(0, 0, 0))

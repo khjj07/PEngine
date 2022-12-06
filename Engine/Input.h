@@ -1,6 +1,8 @@
 #pragma once
 #include "Common.h"
 #include "Win32api.h"
+#include "Camera.h"
+
 struct KeyStructure {
 	int keyCode;
 	bool pressed = false;

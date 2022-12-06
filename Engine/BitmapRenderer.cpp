@@ -63,8 +63,11 @@ void BitmapRenderer::Draw()
 	hTempBitmap = GetRotatedBitmap(render->hdc, bmp, 0,0,btSize.bmWidth, btSize.bmHeight, transform->rotation, RGB(255, 255, 255));
 
 	hOldBitmap = (HBITMAP)SelectObject(tmp, hTempBitmap);
-
-	StretchBlt(render->MemDC, transform->position.x - btSize.bmWidth/2 * transform->scale.x, transform->position.y- btSize.bmHeight/2 * transform->scale.y, btSize.bmWidth*transform->scale.x, btSize.bmHeight * transform->scale.y, tmp, 0,0, btSize.bmWidth , btSize.bmHeight, SRCCOPY);
+	int pos_x = transform->position.x - btSize.bmWidth / 2 * transform->scale.x;
+	int pos_y = transform->position.y - btSize.bmHeight / 2 * transform->scale.y;
+	int size_x = btSize.bmWidth * transform->scale.x / Camera::Main->transform->scale.x;
+	int size_y = btSize.bmHeight * transform->scale.y / Camera::Main->transform->scale.y;
+	StretchBlt(render->MemDC, pos_x, pos_y, size_x, size_y, tmp, 0,0, btSize.bmWidth , btSize.bmHeight, SRCCOPY);
 	SelectObject(tmp, hOldBitmap);
 	DeleteObject(hTempBitmap);
     DeleteDC(tmp);
